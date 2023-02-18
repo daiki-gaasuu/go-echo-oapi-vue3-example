@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { defineComponent, ref } from 'vue';
-import GreetingApi from '../services/greeting-api';
+import { ref } from 'vue';
+import GreetingApi from '@/services/greeting-api';
 // Logo
 import logo from '../assets/logo.svg';
 
