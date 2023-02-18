@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+src/api/greeting-api-client/**/*
+!src/api/greeting-api-client/api.ts
