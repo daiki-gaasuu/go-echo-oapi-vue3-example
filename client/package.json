@@ -10,13 +10,16 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "axios": "^1.3.3",
     "roboto-fontface": "*",
+    "url": "^0.11.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
     "vuetify": "^3.0.0-beta.0",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@types/node": "^18.14.0",
     "@types/webfontloader": "^1.0.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "typescript": "^4.9.3",

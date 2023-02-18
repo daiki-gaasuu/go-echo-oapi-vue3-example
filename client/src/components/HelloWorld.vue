@@ -1,8 +1,23 @@
 <script lang="ts" setup>
-import { defineComponent } from 'vue';
-
+import { defineComponent, ref } from 'vue';
+import GreetingApi from '../services/greeting-api';
 // Logo
 import logo from '../assets/logo.svg';
+
+const inputName = ref('');
+const resName = ref('');
+const isError = ref(false);
+
+const submit = async () => {
+  try {
+    const res = await GreetingApi.getGreeting(inputName.value);
+    if (isError) isError.value = false;
+    resName.value = res.data;
+  } catch (error) {
+    console.log(error);
+    isError.value = true;
+  }
+};
 </script>
 
 <template>
@@ -17,9 +32,19 @@ import logo from '../assets/logo.svg';
           名前を入力してHelloを押すと挨拶してくれます
         </h1>
         <v-responsive class="mx-auto" max-width="300">
-          <v-text-field label="名前を入力" variant="outlined"></v-text-field>
+          <v-text-field
+            v-model="inputName"
+            label="名前を入力"
+            variant="outlined"
+          ></v-text-field>
         </v-responsive>
-        <v-btn color="blue">Hello</v-btn>
+        <v-btn @click="submit" color="blue">Hello</v-btn>
+        <p v-if="isError" class="text-red text-center font-weight-bold">
+          名前がありません
+        </p>
+        <p v-if="resName" class="text-center font-weight-bold">
+          Hello {{ resName }}!!
+        </p>
       </v-col>
     </v-row>
   </v-container>

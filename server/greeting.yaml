@@ -1,7 +1,9 @@
 openapi: '3.0.3'
 info:
   version: 1.0.0
-  title: Greeting Server
+  title: Greeting API
+servers:
+  - url: 'http://localhost:3000'
 paths:
   /hello:
     get:
@@ -13,6 +15,8 @@ paths:
           in: query
           description: defaults to World if not given
       operationId: getGreeting
+      tags:
+        - greeting
       responses:
         200:
           description: returns a greeting

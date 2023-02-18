@@ -25,3 +25,4 @@ dist-ssr
 
 src/api/greeting-api-client/**/*
 !src/api/greeting-api-client/api.ts
+.yarn

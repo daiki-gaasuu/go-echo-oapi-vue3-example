@@ -25,6 +25,11 @@ func main() {
 	// Echo のインスタンス作成
 	e := echo.New()
 
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"http://localhost:5173"},
+		AllowMethods: []string{http.MethodGet, http.MethodPost, http.MethodPost, http.MethodDelete},
+	}))
+
 	// OpenApi 仕様に沿ったリクエストかバリデーションをするミドルウェアを設定
 	swagger, err := oapi.GetSwagger()
 	if err != nil {
